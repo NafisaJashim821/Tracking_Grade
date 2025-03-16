@@ -63,6 +63,8 @@ Before running the Grade Tracker System, ensure you have the following:
 5. **Reset**:
    - Click the "Reset" button to clear all fields and reset the application for a new session.
 
-## Example of the Output File (`gpa_results.txt`):
+## Output
 The GPA results are saved in the following format:
+
+![Image](https://github.com/user-attachments/assets/738522dd-dcf2-4750-a433-a15a1fc2796c)
 
