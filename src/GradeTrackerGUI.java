@@ -12,12 +12,16 @@ public class GradeTrackerGUI extends JFrame {
     private JButton setCoursesButton, addCourseButton, calculateGPAButton, resetButton;
     private JPanel coursePanel;
     private JTextField courseCodeField, courseNameField, gradeField, creditsField;
+    private FileHandler fileHandler;  // Add this line to declare the FileHandler instance
 
     public GradeTrackerGUI() {
         setTitle("Grade Tracker System");
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
+
+        // Initialize the FileHandler with the file path
+        fileHandler = new FileHandler("D:\\Course Grading\\gpa_results.txt");
 
         // Create components
         JLabel titleLabel = new JLabel("Grade Tracker", SwingConstants.CENTER);
@@ -170,6 +174,9 @@ public class GradeTrackerGUI extends JFrame {
 
         // Display the result
         JOptionPane.showMessageDialog(this, "Your GPA is: " + String.format("%.2f", gpa), "GPA Result", JOptionPane.INFORMATION_MESSAGE);
+
+        // Save the GPA to the file
+        fileHandler.saveGPAToFile(gpa, studentNameField.getText(), studentIdField.getText());
     }
 
     private void resetFields() {
